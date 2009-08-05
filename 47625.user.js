@@ -2,6 +2,7 @@
 // @name           Hammerfall RPG Helper
 // @namespace      http://hammerfallhelper.dustywilson.com
 // @include        http://apps.facebook.com/hammerfall/*
+// @include        http://www.facebook.com/common/error.html
 // ==/UserScript==
 
 // THIS CODE IS LICENSED GPL.  Copyright 2009 Dusty Wilson, http://www.dustywilson.com/
@@ -68,23 +69,39 @@ try
 
   var $J;
   var GM_JQ = document.createElement('script');
-  GM_JQ.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js';
-  GM_JQ.type = 'text/javascript';
-  document.getElementsByTagName('head')[0].appendChild(GM_JQ);
-  function GM_wait() {
-    if (typeof unsafeWindow.jQuery == 'undefined')
-    {
-      window.setTimeout(GM_wait, 100);
-    }
-    else
-    {
-      $J = unsafeWindow.jQuery.noConflict();
-      //initInfo.push(say("<b>[ READY ]</b>", 1));
-      setTimeout(initInfoWipe, 500);
-      ready();
-    }
+  if (document.location.href == 'http://www.facebook.com/common/error.html')
+  {
+    clearTimeout(failReload);
+    var inventoryFrame = document.createElement('iframe');
+    inventoryFrame.src = 'http://apps.facebook.com/hammerfall/character';
+    inventoryFrame.height = 600;
+    inventoryFrame.width = 1200;
+    document.getElementsByTagName('body')[0].appendChild(inventoryFrame);
+    var reloadTime = Math.ceil(Math.random() * 10) + 5;
+    say('<b style="color: lime"><i>Going to QUESTS screen in ' + reloadTime + ' seconds.</i></b>', 9);
+    setTimeout('document.location.href="http://apps.facebook.com/hammerfall/quest"', 1000 * reloadTime);
+    //setTimeout('history.go(-1)', 1000 * reloadTime);
   }
-  GM_wait();
+  else
+  {
+    GM_JQ.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js';
+    GM_JQ.type = 'text/javascript';
+    document.getElementsByTagName('head')[0].appendChild(GM_JQ);
+    function GM_wait() {
+      if (typeof unsafeWindow.jQuery == 'undefined')
+      {
+        window.setTimeout(GM_wait, 100);
+      }
+      else
+      {
+        $J = unsafeWindow.jQuery.noConflict();
+        //initInfo.push(say("<b>[ READY ]</b>", 1));
+        setTimeout(initInfoWipe, 500);
+        ready();
+      }
+    }
+    GM_wait();
+  }
 
   function initInfoWipe()
   {
@@ -175,9 +192,9 @@ try
       //}
       if (!location)
       {
-        var reloadTime = Math.ceil(Math.random() * 60) + 30;
+        var reloadTime = Math.ceil(Math.random() * 30) + 30;
         say('<b style="color: lime"><i>Automatically going to QUESTS screen in ' + reloadTime + ' seconds.</i></b>', 9);
-        setTimeout('document.location.href="/hammerfall/quest"', 1000 * reloadTime); // 30 secs
+        setTimeout('document.location.href="http://apps.facebook.com/hammerfall/quest"', 1000 * reloadTime); // 30 secs
       }
 
       // Detect gained items (from quests/battles/etc)
@@ -1477,10 +1494,10 @@ try
       // jobReq entries (used for battles)
       jobReq[0] = new Object(); // DEFAULT FIGHT OPTIONS
       jobReq[0].attack = 1;
-      jobReq[0].healthMin = attribs.healthMax;
-      jobReq[0].energyMin = attribs.energyMax;
+      jobReq[0].healthMin = attribs.healthMax * 0.6;
+      jobReq[0].energyMin = attribs.energyMax * 0.1;
       jobReq[0].healthHealMin = attribs.healthMax * 0.75;
-      jobReq[0].energyHealMin = 8;
+      jobReq[0].energyHealMin = attribs.energyMax * 0.25;
       //jobReq[538] = new Object(); // Goblin @ Throncrest
       //jobReq[538].attack = 1;
       //jobReq[538].healthMin = 30;
@@ -2118,6 +2135,7 @@ try
                   jobImageCell.appendChild(jobIdentify);
                 }
               }
+              $J(form).find('select').parent('form').attr('target', 'hammerfallSelectSubmit');
             }
 
             // if we're on the quest screen...
@@ -2248,7 +2266,7 @@ try
         }
       }
 
-      autoPlayCheck();
+      setTimeout(autoPlayCheck, 1500);
 
       if (recharging)
       {
@@ -2419,6 +2437,22 @@ try
             else
             {
               say("<b style='color: orange'>Not enough stamina for job " + id + ".</b>");
+
+              var timeNow = Number((new Date()).getTime());
+              var remainingStaminaTime = Math.round((attribs['staminaMore'] * 1000 + timeLoaded - timeNow) / 10) / 100;
+              var staminaMaxed = (attribs['stamina'] >= attribs['staminaMax'] ? true : false);
+              if ((staminaMaxed || remainingStaminaTime > 20) && (timeNow - (parseInt(GM_getValue('autoinv/lasttime')) || 0) > 600000)) // 600000 = 10 minutes
+              {
+                say("<b style='color: red'>Fetching updated inventory while we wait.</b>");
+                autoPlay = new Array(); // we don't want it to auto-play something while we do this
+                GM_setValue('autoinv/lasttime', String(timeNow));
+                var inventoryFrame = document.createElement('iframe');
+                inventoryFrame.src = 'http://apps.facebook.com/hammerfall/character';
+                inventoryFrame.height = 1;
+                inventoryFrame.width = 1;
+                inventoryFrame.setAttribute('onload', 'document.location.href=document.location.href');
+                document.getElementsByTagName('body')[0].appendChild(inventoryFrame);
+              }
             }
             break;
           }
