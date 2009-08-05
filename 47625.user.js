@@ -48,10 +48,10 @@ try
   //info.style.overflow = 'auto';
   //info.style.height = '50px';
   info.style.height = 'auto';
-  info.style.width = '600px';
+  info.style.width = '350px';
   info.style.bottom = '0';
-  info.style.left = '50%';
-  info.style.margin = '0 0 0 -300px';
+  info.style.left = '0%';
+  info.style.margin = '0';
   info.style.padding = '0';
   info.style.color = '#FFFFFF';
   info.style.backgroundColor = '#172C40';
@@ -119,7 +119,7 @@ try
       var sidebarLeftBgContainer = document.createElement('div');
       sidebarLeftBgContainer.style.margin = '0';
       sidebarLeftBgContainer.style.position = 'fixed';
-      sidebarLeftBgContainer.style.width = '166px';
+      sidebarLeftBgContainer.style.width = '250px';
       sidebarLeftBgContainer.style.top = '0';
       sidebarLeftBgContainer.style.left = '0';
       sidebarLeftBgContainer.style.height = '100%';
@@ -133,7 +133,7 @@ try
       var sidebarRightBgContainer = document.createElement('div');
       sidebarRightBgContainer.style.margin = '0';
       sidebarRightBgContainer.style.position = 'fixed';
-      sidebarRightBgContainer.style.width = '166px';
+      sidebarRightBgContainer.style.width = '200px';
       sidebarRightBgContainer.style.top = '0';
       sidebarRightBgContainer.style.right = '0';
       sidebarRightBgContainer.style.height = '100%';
@@ -600,7 +600,7 @@ try
       sidebarLeftContainer.id = 'GM-SIDEBARLEFT';
       sidebarLeftContainer.style.margin = '0';
       sidebarLeftContainer.style.position = 'fixed';
-      sidebarLeftContainer.style.width = '166px';
+      sidebarLeftContainer.style.width = '250px';
       sidebarLeftContainer.style.height = String(window.innerHeight - 50) + 'px';
       sidebarLeftContainer.style.top = '27px';
       sidebarLeftContainer.style.left = '0';
@@ -641,11 +641,13 @@ try
       if (location)
       {
         var locationHfwiki = location.replace(/\s+/g, '-').toLowerCase();
-        $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Location</span><span style="float: right; width: 100px; font-weight: bold; text-align: right; margin: 2px 0; color: violet"><a style="color: #BBBBFF; text-decoration: underline" target="hfwiki" href="http://hfwiki.wikidot.com/location:' + locationHfwiki + '">' + location + '</a></span></div>');
+        $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Location</span><span style="float: right; width: 200px; font-weight: bold; text-align: right; margin: 2px 0; color: violet"><a style="color: #BBBBFF; text-decoration: underline" target="hfwiki" href="http://hfwiki.wikidot.com/location:' + locationHfwiki + '">' + location + '</a></span></div>');
+//        $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Location</span><span style="float: right; width: 100px; font-weight: bold; text-align: right; margin: 2px 0; color: violet"><a style="color: #BBBBFF; text-decoration: underline" target="hfwiki" href="http://hfwiki.wikidot.com/location:' + locationHfwiki + '">' + location + '</a></span></div>');
       }
       else
       {
-        $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Location</span><span style="float: right; width: 100px; font-weight: bold; text-align: right; margin: 2px 0; color: violet"><i>Unknown</i></span></div>');
+        $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Location</span><span style="float: right; width: 200px; font-weight: bold; text-align: right; margin: 2px 0; color: violet"><i>Unknown</i></span></div>');
+//        $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Location</span><span style="float: right; width: 100px; font-weight: bold; text-align: right; margin: 2px 0; color: violet"><i>Unknown</i></span></div>');
       }
 
       // show attribs button
@@ -707,7 +709,8 @@ try
         if (qty)
         {
           var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-          $J(healthItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (healthValue ? (healthValue > 0 ? '+' : '') + healthValue + ' hp' : '') + (healthValue && energyValue ? ', ' : '') + (energyValue ? (energyValue > 0 ? '+' : '') + energyValue + ' ep' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #66CC66">' + qty + '</span></div>');
+          $J(healthItemsContainer).append('<div style="clear: both"><span style="float: left; width: 150px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><small style="color: #BBBBBB"> (' + (healthValue ? (healthValue > 0 ? '+' : '') + healthValue + ' hp' : '') + (healthValue && energyValue ? ', ' : '') + (energyValue ? (energyValue > 0 ? '+' : '') + energyValue + ' ep' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #66CC66">' + qty + '</span></div>');
+//          $J(healthItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (healthValue ? (healthValue > 0 ? '+' : '') + healthValue + ' hp' : '') + (healthValue && energyValue ? ', ' : '') + (energyValue ? (energyValue > 0 ? '+' : '') + energyValue + ' ep' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #66CC66">' + qty + '</span></div>');
         }
       }
 
@@ -768,7 +771,8 @@ try
         if (qty)
         {
           var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-          $J(energyItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (energyValue ? (energyValue > 0 ? '+' : '') + energyValue + ' ep' : '') + (energyValue && healthValue ? ', ' : '') + (healthValue ? (healthValue > 0 ? '+' : '') + healthValue + ' hp' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #66CC66">' + qty + '</span></div>');
+          $J(energyItemsContainer).append('<div style="clear: both"><span style="float: left; width: 150px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><small style="color: #BBBBBB"> (' + (energyValue ? (energyValue > 0 ? '+' : '') + energyValue + ' ep' : '') + (energyValue && healthValue ? ', ' : '') + (healthValue ? (healthValue > 0 ? '+' : '') + healthValue + ' hp' : '') + ')</small></span><span style="float: right; width: 30px; font-weight: bold; text-align: right; margin: 2px 0; color: #66CC66">' + qty + '</span></div>');
+//          $J(energyItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (energyValue ? (energyValue > 0 ? '+' : '') + energyValue + ' ep' : '') + (energyValue && healthValue ? ', ' : '') + (healthValue ? (healthValue > 0 ? '+' : '') + healthValue + ' hp' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #66CC66">' + qty + '</span></div>');
         }
       }
 
@@ -809,6 +813,8 @@ try
         $J(mountItemsContainer).hide();
       }
       var mountItems = Array(
+        ['Black Dragon', 50, 50],
+        ['Ice Dragon', 48, 48],
         ['Fire Dragon', 45, 45],
         ['Behemoth', 42, 42],
         ['Wyvern', 40, 40],
@@ -838,12 +844,14 @@ try
           guildI = guildI - qty;
           var qtyColor = (guildI >= 0 ? '#66CC66' : (Math.abs(guildI) < qty ? 'orange' : '#CC6666'));
           var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-          $J(mountItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + '<br/>(' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
+          $J(mountItemsContainer).append('<div style="clear: both"><span style="float: left; width: 155px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><small style="color: #BBBBBB"> (' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 64px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + ' (' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
+//          $J(mountItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + '<br/>(' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
         }
       }
       if (guildI > 0)
       {
-        $J(mountItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0">Unmounted</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
+        $J(mountItemsContainer).append('<div style="clear: both"><span style="float: left; width: 155px; margin: 2px 0">Unmounted</span><span style="float: right; width: 64px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
+//        $J(mountItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0">Unmounted</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
       }
 
       // show mount items button
@@ -883,15 +891,17 @@ try
         $J(armorItemsContainer).hide();
       }
       var armorItems = Array(
+        ['Infernus Shield', 110, 40],
+        ['Imperialis Shield', 100, 30],
+        ['Fire Shield', 80, 30],
         ['Elemental Shield', 70, 35],
+        ['Thunder Shield', 70, 30],
         ['Bone Armor', 65, 35],
         ['Darkness Cloak', 75, 20],
         ['Fading Cloak', 75, 20],
         ['Fire Cloak', 75, 20],
         ['Ice Cloak', 75, 20],
         ['Majestic Cloak', 75, 20],
-        ['Fire Shield', 80, 30],
-        ['Thunder Shield', 70, 30],
         ['Amrit\'s Cape', 90, 0],
         ['Mithiril Armor', 65, 20],
         ['Serrated Shield', 70, 15],
@@ -926,12 +936,14 @@ try
           guildI = guildI - qty;
           var qtyColor = (guildI >= 0 ? '#66CC66' : (Math.abs(guildI) < qty ? 'orange' : '#CC6666'));
           var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-          $J(armorItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + '<br/>(' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
+          $J(armorItemsContainer).append('<div style="clear: both"><span style="float: left; width: 170px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><small style="color: #BBBBBB"> (' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 50px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + ' (' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
+//          $J(armorItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + '<br/>(' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
         }
       }
       if (guildI > 0)
       {
-        $J(armorItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0">Armorless</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
+        $J(armorItemsContainer).append('<div style="clear: both"><span style="float: left; width: 155px; margin: 2px 0">Armorless</span><span style="float: right; width: 64px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
+//        $J(armorItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0">Armorless</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
       }
 
       // show armor items button
@@ -972,22 +984,22 @@ try
       }
       var weaponItems = Array(
         ['Sword of a Hundred Truths', 40, 110],
-        ['Equinox', 35, 90],
         ['Templar', 25, 100],
+        ['Equinox', 35, 90],
         ['Eclipse', 30, 80],
         ['Lear', 35, 75],
-        ['Alpha Sword', 35, 65],
         ['Marrow', 30, 70],
-        ['Harmony', 20, 75],
+        ['Alpha Sword', 35, 65],
+        ['Havok', 20, 75],
         ['Haste', 20, 75],
         ['Hatred', 20, 75],
-        ['Havok', 20, 75],
+        ['Harmony', 20, 75],
         ['Hope', 20, 75],
         ['Dragonsceptre', 15, 70],
         ['Mythic Axe', 20, 65],
         ['Nightslayer', 15, 62],
-        ['Blue Octave', 12, 60],
         ['Farcatcher', 10, 63],
+        ['Blue Octave', 12, 60],
         ['Moonspear', 18, 54],
         ['Vaulter', 11, 56],
         ['Demoneater', 0, 65],
@@ -1021,12 +1033,14 @@ try
           guildI = guildI - qty;
           var qtyColor = (guildI >= 0 ? '#66CC66' : (Math.abs(guildI) < qty ? 'orange' : '#CC6666'));
           var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-          $J(weaponItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + (defValue && atkValue ? ', ' : '') + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + '<br/>(' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
+          $J(weaponItemsContainer).append('<div style="clear: both"><span style="float: left; width: 170px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><small style="color: #BBBBBB"> (' + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + (defValue && atkValue ? ', ' : '') + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + ')</small></span><span style="float: right; width: 50px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + ' (' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
+//          $J(weaponItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + (defValue && atkValue ? ', ' : '') + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + ')</small></span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + '<br/>(' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
         }
       }
       if (guildI > 0)
       {
-        $J(weaponItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0">Unarmed</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
+        $J(weaponItemsContainer).append('<div style="clear: both"><span style="float: left; width: 150px; margin: 2px 0">Unarmed</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
+//        $J(weaponItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0">Unarmed</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
       }
 
       // show weapon items button
@@ -1066,7 +1080,9 @@ try
         $J(accessoriesItemsContainer).hide();
       }
       var accessoriesItems = Array(
+        ['Darkness Dagger', 25, 25],
         ['Hidden Wristblade', 20, 20],
+        ['Poison Dagger', 15, 15],
         ['One-Handed Blade', 15, 10],
         ['Throwing Knives', 12, 12],
         ['Hidden Dagger', 10, 10],
@@ -1093,12 +1109,14 @@ try
           guildI = guildI - qty;
           var qtyColor = (guildI >= 0 ? '#66CC66' : (Math.abs(guildI) < qty ? 'orange' : '#CC6666'));
           var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-          $J(accessoriesItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 30px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + '<br/>(' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
+          $J(accessoriesItemsContainer).append('<div style="clear: both"><span style="float: left; width: 175px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><small style="color: #BBBBBB"> (' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 50px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + ' (' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
+//          $J(accessoriesItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a><br /><small style="color: #BBBBBB">(' + (defValue ? (defValue > 0 ? '+' : '') + defValue + ' def' : '') + (defValue && atkValue ? ', ' : '') + (atkValue ? (atkValue > 0 ? '+' : '') + atkValue + ' atk' : '') + ')</small></span><span style="float: right; width: 30px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + qtyColor + '">' + (guildI < 0 && Math.abs(guildI) < qty ? qty + '<br/>(' + (qty - Math.abs(guildI)) + ')' : qty) + '</span></div>');
         }
       }
       if (guildI > 0)
       {
-        $J(accessoriesItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0">Unsupplied</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
+        $J(accessoriesItemsContainer).append('<div style="clear: both"><span style="float: left; width: 150px; margin: 2px 0">Unsupplied</span><span style="float: right; width: 50px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
+//        $J(accessoriesItemsContainer).append('<div style="clear: both"><span style="float: left; width: 100px; margin: 2px 0">Unsupplied</span><span style="float: right; width: 25px; font-weight: bold; text-align: right; margin: 2px 0; color: #CC6666">' + guildI + '</span></div>');
       }
 
       // show accessories items button
@@ -1131,7 +1149,7 @@ try
       sidebarRightContainer.id = 'GM-SIDEBARRIGHT';
       sidebarRightContainer.style.margin = '0';
       sidebarRightContainer.style.position = 'fixed';
-      sidebarRightContainer.style.width = '166px';
+      sidebarRightContainer.style.width = '200px';
       sidebarRightContainer.style.height = String(window.innerHeight - 50) + 'px';
       sidebarRightContainer.style.top = '27px';
       sidebarRightContainer.style.right = '0';
@@ -1224,7 +1242,32 @@ try
       infoRightContainer.style.margin = '0';
       sidebarRightContainer.appendChild(infoRightContainer);
 
-      // create the viri quest container
+
+      // create the custom items container
+      var customContainer = document.createElement('div');
+      customContainer.style.margin = '5px';
+      infoRightContainer.appendChild(customContainer);
+      if (pageName == 'quest' && GM_getValue('show/customitems'))
+      {
+        $J(customContainer).show();
+      }
+      else
+      {
+        $J(customContainer).hide();
+      }
+      //  Feel free to add/remove your own items to this array
+      var customItems = Array('Lava Crossed', 'Path Lit', 'Crab Urchin', 'Ice Rock', 'Ice Dragon Claw', 'Sea Beast Spirit');
+      $J(customContainer).append('<div style="clear: both; text-align: center; font-weight: bold; padding: 5px">Custom Items</div>');
+      for (var i in customItems)
+      {
+        var item = customItems[i];
+        var qty = (GM_getValue('inv/' + item + '/qty') || 0);
+        var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
+        $J(customContainer).append('<div style="clear: both"><span style="float: left; width: 25px; font-weight: bold; margin: 2px 0; color: ' + (qty >= 100 ? '#66CC66' : '#CC6666') + '">' + qty + '</span><span style="float: right; width: 100px; text-align: right; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a></span></div>');
+      }
+
+
+      // create the viri quest items container
       var viriContainer = document.createElement('div');
       viriContainer.style.margin = '5px';
       infoRightContainer.appendChild(viriContainer);
@@ -1245,7 +1288,7 @@ try
         var item = viriQuestItems1[i];
         var qty = (GM_getValue('inv/' + item + '/qty') || 0);
         var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-        $J(viriContainer).append('<div style="clear: both"><span style="float: left; width: 25px; font-weight: bold; margin: 2px 0; color: ' + (qty >= 100 ? '#66CC66' : '#CC6666') + '">' + qty + '</span><span style="float: right; width: 100px; text-align: right; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a></span></div>');
+        $J(viriContainer).append('<div style="clear: both"><span style="float: left; width: 25px; font-weight: bold; margin: 2px 0; color: ' + (qty >= 100 ? '#66CC66' : '#CC6666') + '">' + qty + '</span><span style="float: right; width: 140px; text-align: right; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a></span></div>');
       }
       $J(viriContainer).append('<div style="clear: both; text-align: center; font-weight: bold; padding: 5px"><a href="http://hfwiki.wikidot.com/location:hidden-path-shortcut-2" style="color: #FFFFFF; text-decoration: underline" target="hfwiki">Viri Quest #2</a></div>');
       for (var i in viriQuestItems2)
@@ -1253,7 +1296,7 @@ try
         var item = viriQuestItems2[i];
         var qty = (GM_getValue('inv/' + item + '/qty') || 0);
         var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-        $J(viriContainer).append('<div style="clear: both"><span style="float: left; width: 25px; font-weight: bold; margin: 2px 0; color: ' + (qty >= 100 ? '#66CC66' : '#CC6666') + '">' + qty + '</span><span style="float: right; width: 100px; text-align: right; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a></span></div>');
+        $J(viriContainer).append('<div style="clear: both"><span style="float: left; width: 25px; font-weight: bold; margin: 2px 0; color: ' + (qty >= 100 ? '#66CC66' : '#CC6666') + '">' + qty + '</span><span style="float: right; width: 140px; text-align: right; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a></span></div>');
       }
       $J(viriContainer).append('<div style="clear: both; text-align: center; font-weight: bold; padding: 5px"><a href="http://hfwiki.wikidot.com/location:hidden-path-shortcut-2" style="color: #FFFFFF; text-decoration: underline" target="hfwiki">Viri Quest #3</a></div>');
       for (var i in viriQuestItems3)
@@ -1261,7 +1304,7 @@ try
         var item = viriQuestItems3[i];
         var qty = (GM_getValue('inv/' + item + '/qty') || 0);
         var itemHfwiki = item.replace(/\s+/g, '-').toLowerCase();
-        $J(viriContainer).append('<div style="clear: both"><span style="float: left; width: 25px; font-weight: bold; margin: 2px 0; color: ' + (qty >= 100 ? '#66CC66' : '#CC6666') + '">' + qty + '</span><span style="float: right; width: 100px; text-align: right; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a></span></div>');
+        $J(viriContainer).append('<div style="clear: both"><span style="float: left; width: 25px; font-weight: bold; margin: 2px 0; color: ' + (qty >= 100 ? '#66CC66' : '#CC6666') + '">' + qty + '</span><span style="float: right; width: 140px; text-align: right; margin: 2px 0"><a href="http://hfwiki.wikidot.com/item:' + itemHfwiki + '" style="color: #FFFFFF; text-decoration: none" target="hfwiki">' + item + '</a></span></div>');
       }
 
 
@@ -1377,7 +1420,8 @@ try
           if (v.toLowerCase() == 'stamina') attribColor = '#E63D00';
           if (v.toLowerCase() == 'energy') attribColor = '#CCBB00';
 
-          $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">' + (v.toLowerCase() == 'exp' ? 'XP' : v) + '</span><span style="float: right; width: 100px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + attribColor + '"><span id="' + v.toLowerCase() + 'Attr">' + attrib + '</span> / ' + attribMax + '</span></div>');
+          $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 40px; margin: 2px 0">' + (v.toLowerCase() == 'exp' ? 'XP' : v) + '</span><span style="float: right; width: 150px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + attribColor + '"><span id="' + v.toLowerCase() + 'Attr">' + attrib + '</span> / ' + attribMax + '</span></div>');
+//          $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">' + (v.toLowerCase() == 'exp' ? 'XP' : v) + '</span><span style="float: right; width: 100px; font-weight: bold; text-align: right; margin: 2px 0; color: ' + attribColor + '"><span id="' + v.toLowerCase() + 'Attr">' + attrib + '</span> / ' + attribMax + '</span></div>');
 
           // say("<b>" + (v.toLowerCase() == 'exp' ? 'XP' : v) + ":</b> <span id='" + v.toLowerCase() + "Attr'>" + attrib + "</span>/" + attribMax + " [" + (v.toLowerCase() == 'exp' ? '-' : attribPct + "%, -") + (attribMax - attrib) + "]" + (attribs[v.toLowerCase() + 'More'] ? ' +' + attribs[v.toLowerCase() + 'More'] + ' secs' : ''), 1);
         }
@@ -1387,6 +1431,8 @@ try
       if (attribs.staminaMax <= attribs.stamina && attribs.healthMax <= attribs.health && attribs.energyMax <= attribs.energy) recharging = 0; // no recharge if full
 
       // get current attributes for Level/Gold
+// Note: Would like to get this to work, but unsure how to scrape this info from the Character Screen
+//      var progressInfo = Array('Level', 'Position', 'Attack', 'Defense', 'Gold');
       var progressInfo = Array('Level', 'Gold');
       for (var i in progressInfo)
       {
@@ -1403,7 +1449,9 @@ try
       }
 
       // append guild info to attribs box
-      $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Guild</span><span style="float: right; width: 100px; font-weight: bold; text-align: right; margin: 2px 0; color: orange">(' + attribs.guildEffective + ')<br/>' + attribs.guildCount + ' / ' + attribs.guildMax + '</span></div>');
+      $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Guild</span><span style="float: right; width: 150px; font-weight: bold; text-align: right; margin: 2px 0; color: orange">(' + attribs.guildEffective + ') ' + attribs.guildCount + ' / ' + attribs.guildMax + '</span></div>');
+//      $J(attribsContainer).append('<div style="clear: both"><span style="float: left; width: 20px; margin: 2px 0">Guild</span><span style="float: right; width: 100px; font-weight: bold; text-align: right; margin: 2px 0; color: orange">(' + attribs.guildEffective + ')<br/>' + attribs.guildCount + ' / ' + attribs.guildMax + '</span></div>');
+
 
       // Barrenhoff auto-farm Dumplings & Fire Dragon
       //if (location == 'Barrenhoff')
@@ -1429,6 +1477,10 @@ try
       invInfo[769].name = 'Fresh Water';
       invInfo[769].singular = 'Fresh Water';
       invInfo[769].plural = 'Fresh Waters';
+      invInfo[770] = new Object(); // Bread
+      invInfo[770].name = 'Bread';
+      invInfo[770].singular = 'Bread';
+      invInfo[770].plural = 'Breads';
       invInfo[771] = new Object(); // Mushrooms
       invInfo[771].name = 'Mushrooms';
       invInfo[771].singular = 'Mushroom';
@@ -1449,10 +1501,18 @@ try
       invInfo[775].name = 'Dumplings';
       invInfo[775].singular = 'Dumpling';
       invInfo[775].plural = 'Dumplings';
+      invInfo[1915] = new Object(); // Chocolate
+      invInfo[1915].name = 'Chocolate';
+      invInfo[1915].singular = 'Chocolate';
+      invInfo[1915].plural = 'Chocolates';
       invInfo[776] = new Object(); // Dragon Flesh
       invInfo[776].name = 'Dragon Flesh';
       invInfo[776].singular = 'Dragon Flesh';
       invInfo[776].plural = 'Dragon Flesh';
+      invInfo[784] = new Object(); // Lotus Petal
+      invInfo[784].name = 'Lotus Petal';
+      invInfo[784].singular = 'Lotus Petal';
+      invInfo[784].plural = 'Lotus Petals';
       invInfo[785] = new Object(); // Sprites
       invInfo[785].name = 'Sprites';
       invInfo[785].singular = 'Sprite';
@@ -1473,14 +1533,22 @@ try
       invInfo[1321].name = 'Dragon Tear';
       invInfo[1321].singular = 'Dragon Tear';
       invInfo[1321].plural = 'Dragon Tears';
+      invInfo[788] = new Object(); // Lotus Blossum
+      invInfo[788].name = 'Lotus Blossum';
+      invInfo[788].singular = 'Lotus Blossum';
+      invInfo[788].plural = 'Lotus Blossums';
+      invInfo[1586] = new Object(); // Black Elixir
+      invInfo[1586].name = 'Black Elixir';
+      invInfo[1586].singular = 'Black Elixir';
+      invInfo[1586].plural = 'Black Elixirs';
 
       // jobReq entries (used for battles)
       jobReq[0] = new Object(); // DEFAULT FIGHT OPTIONS
       jobReq[0].attack = 1;
-      jobReq[0].healthMin = attribs.healthMax;
-      jobReq[0].energyMin = attribs.energyMax;
-      jobReq[0].healthHealMin = attribs.healthMax * 0.75;
-      jobReq[0].energyHealMin = 8;
+      jobReq[0].healthMin = attribs.healthMax * 0.7;
+      jobReq[0].energyMin = attribs.energyMax * 0.3;
+      jobReq[0].healthHealMin = attribs.healthMax * 0.70 - 30;
+      jobReq[0].energyHealMin = 49;
       //jobReq[538] = new Object(); // Goblin @ Throncrest
       //jobReq[538].attack = 1;
       //jobReq[538].healthMin = 30;
@@ -1763,6 +1831,18 @@ try
       //jobReq[1542].energyMin = attribs.energyMax;
       //jobReq[1542].healthHealMin = 750;
       //jobReq[1542].energyHealMin = 8;
+      jobReq[1540] = new Object(); // Blind Ogre @ Falhill Dungeon
+      jobReq[1540].attack = 1;
+      jobReq[1540].healthMin = 1;
+      jobReq[1540].energyMin = 100;
+      jobReq[1540].healthHealMin = attribs.healthMax +1;
+      jobReq[1540].energyHealMin = 49;
+      jobReq[1541] = new Object(); // Fortrill @ Falhill Dungeon
+      jobReq[1541].attack = 1;
+      jobReq[1541].healthMin = 1;
+      jobReq[1541].energyMin = 100;
+      jobReq[1541].healthHealMin = attribs.healthMax +1;
+      jobReq[1541].energyHealMin = 49;
       jobReq[513] = new Object(); // Young Boar @ Boar Island Beach
       jobReq[513].attack = 1;
       jobReq[513].healthMin = 30;
@@ -1961,8 +2041,33 @@ try
       // if we're on the quest screen...
       if (pageName == 'quest')
       {
+        // show custom items button
+        var showCustomItemsToggle = GM_getValue('show/customitems') || 0;
+        var showCustomItemsBtn = document.createElement('input');
+        showCustomItemsBtn.setAttribute('value', 'Show Custom Items');
+        showCustomItemsBtn.setAttribute('type', 'button');
+        showCustomItemsBtn.style.width = '150px';
+        showCustomItemsBtn.style.backgroundColor = (showViriToggle > 0 ? '#66CC66' : '#CC6666');
+        showCustomItemsBtn.addEventListener('click', function(event) {
+          var btn = event.wrappedJSObject.originalTarget;
+          GM_setValue('show/customitems', !GM_getValue('show/customitems'));
+          showCustomItemsEnabled = GM_getValue('show/customitems');
+          btn.style.backgroundColor = (showCustomItemsEnabled ? '#66CC66' : '#CC6666');
+          if (showCustomItemsEnabled)
+          {
+            $J(customContainer).fadeIn(100);
+          }
+          else
+          {
+            $J(customContainer).fadeOut(250);
+          }
+        }, false);
+        toggleRightContainer.appendChild(showCustomItemsBtn);
+        toggleRightContainer.appendChild(document.createElement('br'));
+
         // show viri button
         var showViriToggle = GM_getValue('show/viri') || 0;
+        var showViriBtn = document.createElement('input');
         var showViriBtn = document.createElement('input');
         showViriBtn.setAttribute('value', 'Show Viri Items');
         showViriBtn.setAttribute('type', 'button');
@@ -2003,23 +2108,27 @@ try
               autoPlay.push(374); // Heal spell
               GM_setValue('attack/hasDefUp', 1);
             }
-            else if (autoAtkUpEnabled && !GM_getValue('attack/hasAtkUp') && attribs.energy >= 100 && attribs.monsterEnergy > 20)
+            else if (autoAtkUpEnabled && !GM_getValue('attack/hasAtkUp') && attribs.energy >= 100 && attribs.monsterHealth >= 600 && attribs.monsterEnergy >= 600 && attribs.monsterDefense >= 10000)
             {
               autoPlay.push(373); // Power Up spell
               GM_setValue('attack/hasAtkUp', 1);
             }
             if (autoAttackEnabled)
             {
-              if (attribs.energy >= 5 && (pageId == "1494" || pageId == "1744" || pageId == "991745") && attribs.monsterEnergy >= 100) autoPlay.push(20); // basic attack to Vikram (he heals too fast for anything else it seems? wait until his energy is low enough before really attacking)
-              if (attribs.energy >= 25 && attribs.monsterHealth > 1250) autoPlay.push(375); // oblivion
-              //if (attribs.energy >= 50) autoPlay.push(370); // inferno
-              //if (attribs.gold >= 150 && attribs.energy >= 5) autoPlay.push(366); // gold bomb
-              if (attribs.energy >= 10 && attribs.health - thisJobReq.healthHealMin >= 50) autoPlay.push(46); // force strike
-              if (attribs.energy >= 10) autoPlay.push(367); // fire blast
-              if (attribs.energy >= 8) autoPlay.push(45); // two-handed slash
-              if (attribs.energy >= 7) autoPlay.push(22); // double strike
-              if (attribs.energy >= 6) autoPlay.push(31); // stun
-              if (attribs.energy >= 5) autoPlay.push(20); // basic
+              if (attribs.energy >= 10 && attribs.health >= 50 && (pageId == "1540" || pageId == "1541")) autoPlay.push(46); // force strike
+              if (attribs.energy >= 25 && attribs.monsterHealth > 999) autoPlay.push(375); // Oblivion when health high
+//              if (attribs.energy >= 50 && attribs.monsterHealth > 160) autoPlay.push(115); // Doom when health 161-999
+              if (attribs.energy >= 50 && attribs.monsterHealth > 160) autoPlay.push(370); // Inferno when health 161-999
+//              if (attribs.energy >= 30 && attribs.monsterHealth > 160) autoPlay.push(369); // Poison Cloud when health 161+
+              if (attribs.energy >= 40 && attribs.monsterHealth > 120) autoPlay.push(114); // Ice Strike when health 121-160
+//              if (attribs.gold >= 150 && attribs.energy >= 5 && attribs.monsterHealth > 54) autoPlay.push(366); // Gold Bomb when health 55+ 
+              if (attribs.energy >= 20 && attribs.monsterHealth > 54) autoPlay.push(368); // Lightning Bolt when health 55-120
+              if (attribs.energy >= 10 && attribs.monsterHealth > 44) autoPlay.push(367); // Fire Blast when health 45-54
+              if (attribs.energy >=  8 && attribs.monsterHealth > 30) autoPlay.push(45); // TwoHanded Slash when health 31-44
+//              if (attribs.energy >= 7) autoPlay.push(22); // double strike
+//              if (attribs.energy >= 6) autoPlay.push(31); // stun
+              if (attribs.energy >=  5) autoPlay.push(20); // Basic Strike when health 1-30
+//              if (attribs.energy >= 5 && (pageId == "1494" || pageId == "1744" || pageId == "991745") && attribs.monsterEnergy >= 100) autoPlay.push(20); // basic attack to Vikram (he heals too fast for anything else it seems? wait until his energy is low enough before really attacking)
             }
           }
           else
@@ -2029,12 +2138,13 @@ try
             {
               if (attribs.monsterEnergy > 20)
               { // don't waste big energy items if the monster can't attack you
+                if (attribs.energy < 50) autoPlay.push(1586, 788, 1321, 1101); // Black Elixir, Lotus Blossum, Dragontear, Green Elixir if Energy <50
                 if (attribs.energyMax - attribs.energy >= 125) autoPlay.push(1321, 1101, 787, 786, 785); // dragontear +125, greenelixir +100, redelixir +80, blueelixir +60, sprites +40
                 if (attribs.energyMax - attribs.energy >= 100) autoPlay.push(1101, 787, 1321, 786, 785); // greenelixir +100, redelixir +80, dragontear +125, blueelixir +60, sprites +40
                 if (attribs.energyMax - attribs.energy >= 60) autoPlay.push(786, 787, 1101, 1321, 785); // blueelixir +60, redelixir +80, greenelixir +100, dragontear +125, sprites +40
                 if (attribs.energyMax - attribs.energy >= 40) autoPlay.push(785, 786, 787, 1101, 1321); // sprites +40, blueelixir +60, redelixir +80, greenelixir +100, dragontear +125
               }
-              autoPlay.push(785, 786, 787, 1101, 1321); // sprites +40, blueelixir +60, redelixir +80, greenelixir +100, dragontear +125
+              autoPlay.push(784, 785, 786, 787, 1101, 1321, 788, 1586); // lotus petal +20, sprites +40, blueelixir +60, redelixir +80, greenelixir +100, dragontear +125, lotus blossum +150, blackelixir +250
               if (autoRunAway)
               {
                 autoPlay.push(21); // runaway
@@ -2047,15 +2157,19 @@ try
           say("<b style='color: red'><i>NEED MORE HEALTH!</i></b>", 1);
           if (autoHealEnabled)
           {
-            if (attribs.healthMax - attribs.health >= 450) autoPlay.push(776, 775, 774, 773, 772, 771, 769); // dragon flesh +500, dumplings +300, apples +200, fish +150, watermelon +100, mushrooms +75, fresh water +25
-            if ((attribs.health + 30) / attribs.healthMax < 0.7 && attribs.energy >= 25) autoPlay.push(1080); // heal spell (+30% of max health + 30 hp)
-            if (attribs.healthMax - attribs.health >= 275) autoPlay.push(775, 774, 776, 773, 772, 771, 769); // dumplings +300, apples +200, dragon flesh +500, fish +150, watermelon +100, mushrooms +75, fresh water +25
-            if (attribs.healthMax - attribs.health >= 190) autoPlay.push(774, 775, 773, 772, 776, 771, 769); // apples +200, dumplings +300, fish +150, watermelon +100, dragon flesh +500, mushrooms +75, fresh water +25
-            if (attribs.healthMax - attribs.health >= 150) autoPlay.push(773, 774, 775, 772, 771, 776, 769); // fish +150, apples +200, dumplings +300, watermelon +100, mushrooms +75, dragon flesh +500, fresh water +25
-            if (attribs.healthMax - attribs.health >= 100) autoPlay.push(772, 773, 771, 774, 775, 776, 769); // watermelon +100, fish +150, mushrooms +75, apples +200, dumplings +300, dragon flesh +500, fresh water +25
-            if (attribs.healthMax - attribs.health >= 75) autoPlay.push(771, 772, 773, 769, 774, 775, 776); // mushrooms +75, watermelon +100, fish +150, fresh water +25, apples +200, dumplings +300, dragon flesh +500
-            if (attribs.healthMax - attribs.health >= 25) autoPlay.push(769, 771, 772, 773, 774, 775, 776); // fresh water +25, mushrooms +75, watermelon +100, fish +150, apples +200, dumplings +300, dragon flesh +500
-            autoPlay.push(769, 771, 772, 773, 774, 775, 776); // fresh water +25, mushrooms +75, watermelon +100, fish +150, apples +200, dumplings +300, dragon flesh +500
+            if (attribs.monsterEnergy > 20)
+            { // don't waste big healing items if the monster can't attack you
+              if ((attribs.health + 30) / attribs.healthMax < 0.7 && attribs.energy >= 25) autoPlay.push(1080); // heal spell (+30% of max health + 30 hp)
+//              if (attribs.healthMax - attribs.health >= 500) autoPlay.push(776, 775, 774, 773, 772, 771, 770, 769); // dragon flesh +500, dumplings +300, apples +200, fish +150, watermelon +100, mushrooms +75, bread +50, fresh water +25
+//              if (attribs.healthMax - attribs.health >= 300) autoPlay.push(775, 774, 776, 773, 772, 771, 770, 769); // dumplings +300, apples +200, dragon flesh +500, fish +150, watermelon +100, mushrooms +75, bread +50, fresh water +25
+//              if (attribs.healthMax - attribs.health >= 200) autoPlay.push(774, 775, 773, 772, 776, 771, 770, 769); // apples +200, dumplings +300, fish +150, watermelon +100, dragon flesh +500, mushrooms +75, bread +50, fresh water +25
+//              if (attribs.healthMax - attribs.health >= 150) autoPlay.push(773, 774, 775, 772, 771, 776, 770, 769); // fish +150, apples +200, dumplings +300, watermelon +100, mushrooms +75, dragon flesh +500, bread +50, fresh water +25
+//              if (attribs.healthMax - attribs.health >= 100) autoPlay.push(772, 773, 771, 774, 775, 776, 770, 769); // watermelon +100, fish +150, mushrooms +75, apples +200, dumplings +300, dragon flesh +500, bread +50, fresh water +25
+//              if (attribs.healthMax - attribs.health >= 75) autoPlay.push(771, 772, 773, 770, 769, 774, 775, 776); // mushrooms +75, watermelon +100, fish +150, bread +50, fresh water +25, apples +200, dumplings +300, dragon flesh +500
+//              if (attribs.healthMax - attribs.health >= 50) autoPlay.push(770, 771, 772, 773, 769, 774, 775, 776); // bread +50, mushrooms +75, watermelon +100, fish +150, bread +50, fresh water +25, apples +200, dumplings +300, dragon flesh +500
+//              if (attribs.healthMax - attribs.health >= 25) autoPlay.push(769, 770, 771, 772, 773, 774, 775, 776); // fresh water +25, bread +50, mushrooms +75, watermelon +100, fish +150, apples +200, dumplings +300, dragon flesh +500
+            }
+            autoPlay.push(769, 770, 771, 772, 773, 774, 775, 776, 1915); // fresh water +25, bread +50, mushrooms +75, watermelon +100, fish +150, apples +200, dumplings +300, dragon flesh +500, chocolate +400
             if (autoRunAway)
             {
               autoPlay.push(21); // runaway
